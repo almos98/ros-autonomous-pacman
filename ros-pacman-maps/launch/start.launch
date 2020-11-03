@@ -7,7 +7,7 @@
   
   <param name="/use_sim_time" value="true" />
 
-  <node name="gazebo" pkg="gazebo_ros" type="gzserver" args="$(arg gazebo_args) $(find arena)/worlds/$(arg world)" respawn="false" output="screen"/>
+  <node name="gazebo" pkg="gazebo_ros" type="gzserver" args="$(arg gazebo_args) $(find arena)/worlds/maze_10m_x_14m.world" respawn="false" output="screen"/>
   
     <!-- start gui -->
   <group if="$(arg gui)">
