@@ -283,45 +283,6 @@
         <kinematic>0</kinematic>
       </link>
     </model>
-    <model name='small_wall_67'>
-      <static>1</static>
-      <link name='small_wall_67_link'>
-        <pose frame=''>2.4 -1.2 0 0 0 -1.5708</pose>
-        <collision name='small_wall_67_collision'>
-          <geometry>
-            <mesh>
-              <uri>file://small_wall.dae</uri>
-              <scale>1 1 1</scale>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='small_wall_67_visual'>
-          <cast_shadows>0</cast_shadows>
-          <geometry>
-            <mesh>
-              <uri>file://small_wall.dae</uri>
-              <scale>1 1 1</scale>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-    </model>
     <model name='small_wall_68'>
       <static>1</static>
       <link name='small_wall_68_link'>
@@ -556,45 +517,6 @@
         <kinematic>0</kinematic>
       </link>
     </model>
-    <model name='small_wall_76'>
-      <static>1</static>
-      <link name='small_wall_76_link'>
-        <pose frame=''>0 2.4 0 0 0 -3.14159</pose>
-        <collision name='small_wall_76_collision'>
-          <geometry>
-            <mesh>
-              <uri>file://small_wall.dae</uri>
-              <scale>1 1 1</scale>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='small_wall_76_visual'>
-          <cast_shadows>0</cast_shadows>
-          <geometry>
-            <mesh>
-              <uri>file://small_wall.dae</uri>
-              <scale>1 1 1</scale>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-    </model>
     <model name='small_wall_77'>
       <static>1</static>
       <link name='small_wall_77_link'>
@@ -738,45 +660,6 @@
           </surface>
         </collision>
         <visual name='small_wall_80_visual'>
-          <cast_shadows>0</cast_shadows>
-          <geometry>
-            <mesh>
-              <uri>file://small_wall.dae</uri>
-              <scale>1 1 1</scale>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-    </model>
-    <model name='small_wall_82'>
-      <static>1</static>
-      <link name='small_wall_82_link'>
-        <pose frame=''>2.4 3.6 0 0 -0 0</pose>
-        <collision name='small_wall_82_collision'>
-          <geometry>
-            <mesh>
-              <uri>file://small_wall.dae</uri>
-              <scale>1 1 1</scale>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='small_wall_82_visual'>
           <cast_shadows>0</cast_shadows>
           <geometry>
             <mesh>
@@ -2064,45 +1947,6 @@
           </surface>
         </collision>
         <visual name='small_wall_120_visual'>
-          <cast_shadows>0</cast_shadows>
-          <geometry>
-            <mesh>
-              <uri>file://small_wall.dae</uri>
-              <scale>1 1 1</scale>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-    </model>
-    <model name='small_wall_121'>
-      <static>1</static>
-      <link name='small_wall_121_link'>
-        <pose frame=''>1.2 -4.8 0 0 0 -3.14159</pose>
-        <collision name='small_wall_121_collision'>
-          <geometry>
-            <mesh>
-              <uri>file://small_wall.dae</uri>
-              <scale>1 1 1</scale>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='small_wall_121_visual'>
           <cast_shadows>0</cast_shadows>
           <geometry>
             <mesh>
@@ -4122,7 +3966,7 @@
     <state world_name='default'>
       <sim_time>0 0</sim_time>
       <real_time>0 0</real_time>
-      <wall_time>1604438898 377036015</wall_time>
+      <wall_time>1605135996 142061197</wall_time>
       <iterations>0</iterations>
       <model name='plane_model'>
         <pose frame=''>0 0 0 0 -0 0</pose>
@@ -4334,16 +4178,6 @@
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='small_wall_121'>
-        <pose frame=''>0 0 0 0 -0 0</pose>
-        <scale>1 1 1</scale>
-        <link name='small_wall_121_link'>
-          <pose frame=''>1.2 -4.8 0 0 0 -3.14159</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
       <model name='small_wall_122'>
         <pose frame=''>0 0 0 0 -0 0</pose>
         <scale>1 1 1</scale>
@@ -4365,7 +4199,7 @@
         </link>
       </model>
       <model name='small_wall_124'>
-        <pose frame=''>0 0 0 0 -0 0</pose>
+        <pose frame=''>0 -0 0 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='small_wall_124_link'>
           <pose frame=''>-3.6 3.6 0 0 -0 1.57079</pose>
@@ -4375,7 +4209,7 @@
         </link>
       </model>
       <model name='small_wall_125'>
-        <pose frame=''>0 -0 0 0 -0 0</pose>
+        <pose frame=''>0 0 0 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='small_wall_125_link'>
           <pose frame=''>-3.6 4.8 0 0 -0 1.57079</pose>
@@ -4505,7 +4339,7 @@
         </link>
       </model>
       <model name='small_wall_138'>
-        <pose frame=''>0 -0 0 0 -0 0</pose>
+        <pose frame=''>0 0 0 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='small_wall_138_link'>
           <pose frame=''>-3.6 -1.2 0 0 -0 1.57079</pose>
@@ -4545,7 +4379,7 @@
         </link>
       </model>
       <model name='small_wall_142'>
-        <pose frame=''>0 0 0 0 -0 0</pose>
+        <pose frame=''>-0 0 0 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='small_wall_142_link'>
           <pose frame=''>4.8 4.8 0 0 -0 1.57079</pose>
@@ -4645,7 +4479,7 @@
         </link>
       </model>
       <model name='small_wall_152'>
-        <pose frame=''>-0 0 0 0 -0 0</pose>
+        <pose frame=''>0 0 0 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='small_wall_152_link'>
           <pose frame=''>-3.6 -3.6 0 0 -0 1.57079</pose>
@@ -4655,7 +4489,7 @@
         </link>
       </model>
       <model name='small_wall_153'>
-        <pose frame=''>-0 0 0 0 -0 0</pose>
+        <pose frame=''>0 0 0 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='small_wall_153_link'>
           <pose frame=''>-3.6 -4.8 0 0 -0 1.57079</pose>
@@ -4685,7 +4519,7 @@
         </link>
       </model>
       <model name='small_wall_156'>
-        <pose frame=''>-0 0 0 0 -0 0</pose>
+        <pose frame=''>0 0 0 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='small_wall_156_link'>
           <pose frame=''>-1.2 -6 0 0 -0 1.57079</pose>
@@ -4705,7 +4539,7 @@
         </link>
       </model>
       <model name='small_wall_158'>
-        <pose frame=''>-0 0 0 0 -0 0</pose>
+        <pose frame=''>0 0 0 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='small_wall_158_link'>
           <pose frame=''>1.2 -6 0 0 -0 1.57079</pose>
@@ -4895,20 +4729,10 @@
         </link>
       </model>
       <model name='small_wall_66'>
-        <pose frame=''>-0 -0 0 0 -0 0</pose>
+        <pose frame=''>-0 0 0 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='small_wall_66_link'>
           <pose frame=''>2.4 -1.2 0 0 -0 1.57079</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='small_wall_67'>
-        <pose frame=''>-0 0 0 0 -0 0</pose>
-        <scale>1 1 1</scale>
-        <link name='small_wall_67_link'>
-          <pose frame=''>2.4 -1.2 0 0 0 -1.5708</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
@@ -4974,16 +4798,6 @@
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='small_wall_76'>
-        <pose frame=''>-0 0 0 0 -0 0</pose>
-        <scale>1 1 1</scale>
-        <link name='small_wall_76_link'>
-          <pose frame=''>0 2.4 0 0 0 -3.14159</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
       <model name='small_wall_77'>
         <pose frame=''>0 0 0 0 -0 0</pose>
         <scale>1 1 1</scale>
@@ -4995,7 +4809,7 @@
         </link>
       </model>
       <model name='small_wall_78'>
-        <pose frame=''>-0 0 0 0 -0 0</pose>
+        <pose frame=''>0 -0 0 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='small_wall_78_link'>
           <pose frame=''>-1.2 1.2 0 0 -0 1.57079</pose>
@@ -5019,16 +4833,6 @@
         <scale>1 1 1</scale>
         <link name='small_wall_80_link'>
           <pose frame=''>1.2 3.6 0 0 0 -3.14159</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='small_wall_82'>
-        <pose frame=''>0 0 0 0 -0 0</pose>
-        <scale>1 1 1</scale>
-        <link name='small_wall_82_link'>
-          <pose frame=''>2.4 3.6 0 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
@@ -5075,7 +4879,7 @@
         </link>
       </model>
       <model name='small_wall_89'>
-        <pose frame=''>0 -0 0 0 -0 0</pose>
+        <pose frame=''>0 0 0 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='small_wall_89_link'>
           <pose frame=''>-1.2 -1.2 0 0 -0 1.57079</pose>
@@ -5085,7 +4889,7 @@
         </link>
       </model>
       <model name='small_wall_90'>
-        <pose frame=''>0 0 0 0 -0 0</pose>
+        <pose frame=''>-0 0 0 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='small_wall_90_link'>
           <pose frame=''>0 -2.4 0 0 -0 1.57079</pose>
@@ -5170,7 +4974,7 @@
     </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose frame=''>11.6473 1.05296 21.1918 0 1.1098 2.9762</pose>
+        <pose frame=''>15.4881 -3.1966 18.1701 -0 1.0658 2.6562</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>
