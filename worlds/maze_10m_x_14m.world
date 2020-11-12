@@ -2974,45 +2974,6 @@
         <kinematic>0</kinematic>
       </link>
     </model>
-    <model name='small_wall_148'>
-      <static>1</static>
-      <link name='small_wall_148_link'>
-        <pose frame=''>-3.6 -2.4 0 0 0 -3.14159</pose>
-        <collision name='small_wall_148_collision'>
-          <geometry>
-            <mesh>
-              <uri>file://small_wall.dae</uri>
-              <scale>1 1 1</scale>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='small_wall_148_visual'>
-          <cast_shadows>0</cast_shadows>
-          <geometry>
-            <mesh>
-              <uri>file://small_wall.dae</uri>
-              <scale>1 1 1</scale>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-    </model>
     <model name='small_wall_149'>
       <static>1</static>
       <link name='small_wall_149_link'>
@@ -3966,7 +3927,7 @@
     <state world_name='default'>
       <sim_time>0 0</sim_time>
       <real_time>0 0</real_time>
-      <wall_time>1605135996 142061197</wall_time>
+      <wall_time>1605136668 575699064</wall_time>
       <iterations>0</iterations>
       <model name='plane_model'>
         <pose frame=''>0 0 0 0 -0 0</pose>
@@ -4433,16 +4394,6 @@
         <scale>1 1 1</scale>
         <link name='small_wall_147_link'>
           <pose frame=''>4.8 4.8 0 0 0 -1.5708</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='small_wall_148'>
-        <pose frame=''>0 -0 0 0 -0 0</pose>
-        <scale>1 1 1</scale>
-        <link name='small_wall_148_link'>
-          <pose frame=''>-3.6 -2.4 0 0 0 -3.14159</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
@@ -4974,7 +4925,7 @@
     </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose frame=''>15.4881 -3.1966 18.1701 -0 1.0658 2.6562</pose>
+        <pose frame=''>5.18054 0.311649 22.1961 0 1.5018 2.9962</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>
