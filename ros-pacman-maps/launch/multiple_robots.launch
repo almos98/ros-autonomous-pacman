@@ -1,0 +1,28 @@
+<launch>
+    <arg name="world" default="maze_10m_x_14m.world"/>
+    <arg name="ghost_count" default="4"/>
+
+    <arg name="pacman_robot" default="pacmanlol"/>
+    <arg name="pacman_pos_x" default=" 0.0"/>
+    <arg name="pacman_pos_y" default=" 0.0"/>
+    <arg name="pacman_pos_z" default=" 0.0"/>
+    <arg name="pacman_yaw" default=" 0.0"/>
+    
+    <include file="$(find ros-pacman-maps)/launch/start.launch">
+        <arg name="world" value="$(arg world)"/>
+        <arg name="gui" default="true"/>
+    </include>
+
+    <group ns="pacman">
+        <param name="robot_description" command="$(find xacro)/xacro --inorder $(find turtlebot3_description)/urdf/turtlebot3_waffle.urdf.xacro" />
+        
+        <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen">
+            <param name="publish_frequency" type="double" value="50.0"/>
+            <param name="tf_prefix" value="pacman"/>
+        </node>
+
+        <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-urdf -model $(arg pacman_robot) -x $(arg pacman_pos_x) -y $(arg pacman_pos_y) -z $(arg pacman_pos_z) -Y $(arg pacman_yaw) -param robot_description" />
+    </group>
+
+    
+</launch>
