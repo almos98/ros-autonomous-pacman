@@ -3,7 +3,7 @@
 <launch>
   <arg name="gui" default="true"/>
 
-  <include file="$(find ros-autonomous-pacman)/launch/start.launch">
+  <include file="$(find ros_autonomous_pacman)/launch/start.launch">
    <arg name="world" value="maze_10m_x_14m.world"/> 
    <arg name="gui" value="$(arg gui)"/> 
   </include>
