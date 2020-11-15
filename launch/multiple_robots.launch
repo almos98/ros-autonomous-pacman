@@ -1,28 +1,20 @@
 <launch>
     <arg name="world" default="maze_10m_x_14m.world"/>
-    <arg name="ghost_count" default="4"/>
-
-    <arg name="pacman_robot" default="pacmanlol"/>
+    <arg name="model" default="burger" doc="model type [burger, waffle, waffle_pi]"/>
+    
     <arg name="pacman_pos_x" default=" 0.0"/>
     <arg name="pacman_pos_y" default=" 0.0"/>
     <arg name="pacman_pos_z" default=" 0.0"/>
-    <arg name="pacman_yaw" default=" 0.0"/>
-    
-    <include file="$(find ros_autonomous_pacman)/launch/start.launch">
-        <arg name="world" value="$(arg world)"/>
-        <arg name="gui" default="true"/>
+
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name" value="$(find ros_autonomous_pacman)/worlds/$(arg world)"/>
+        <arg name="paused" value="false"/>
+        <arg name="use_sim_time" value="true"/>
+        <arg name="gui" value="true"/>
+        <arg name="headless" value="false"/>
+        <arg name="debug" value="false"/>
     </include>
 
-    <group ns="pacman">
-        <param name="robot_description" command="$(find xacro)/xacro --inorder $(find turtlebot3_description)/urdf/turtlebot3_burger.urdf.xacro" />
-        
-        <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen">
-            <param name="publish_frequency" type="double" value="50.0"/>
-            <param name="tf_prefix" value="pacman"/>
-        </node>
-
-        <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-urdf -model $(arg pacman_robot) -x $(arg pacman_pos_x) -y $(arg pacman_pos_y) -z $(arg pacman_pos_z) -Y $(arg pacman_yaw) -param robot_description" />
-    </group>
-
-    
+    <param name="robot_description" command="$(find xacro)/xacro.py $(find turtlebot3_description)/urdf/turtlebot3_$(arg model).urdf.xacro" />
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-urdf -model turtlebot3_burger -x $(arg pacman_pos_x) -y $(arg pacman_pos_y) -z $(arg pacman_pos_z) -param robot_description" />
 </launch>
