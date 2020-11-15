@@ -29,7 +29,9 @@ def odometryCb(msg):
     zPosition = msgObj.z
     quat = (msgObj.x, msgObj.y, msgObj.z, msgObj.w)
     #create a list of the orientation coordinates 
-    roll,pitch,yaw = euler_from_quaternion(quat)   
+
+   #  roll,pitch,yaw = euler_from_quaternion(quat)   WASNT IMPORTING CORRECTLY
+
 # it is not necessary to add more code here but it could be useful
 def key_cb(msg):
    global state; global last_key_press_time;global linear_component;global angular_component
@@ -52,11 +54,13 @@ def print_state():
 # init node
 rospy.init_node('pacman-motion')
 # subscribers/publishers
-scan_sub = rospy.Subscriber('scan', LaserScan, scan_cb)
+scan_sub = rospy.Subscriber('/pacman/scan', LaserScan, scan_cb)
 # RUN rosrun prrexamples key_publisher.py to get /keys
+
+# PUBLISHING TO /pacman/PUBLISHER due to name spacing 
 key_sub = rospy.Subscriber('keys', String, key_cb)
-rospy.Subscriber('odom',Odometry,odometryCb)
-cmd_vel_pub = rospy.Publisher('cmd_vel', Twist, queue_size=10)
+rospy.Subscriber('/pacman/odom',Odometry,odometryCb)
+cmd_vel_pub = rospy.Publisher('/pacman/cmd_vel', Twist, queue_size=10)
 # start in state halted and grab the current time
 state = "x"
 last_key_press_time = rospy.Time.now()
