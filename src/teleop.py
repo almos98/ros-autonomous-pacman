@@ -7,6 +7,8 @@ from std_msgs.msg import String
 from geometry_msgs.msg import Twist
 from nav_msgs.msg import Odometry
 from sensor_msgs.msg import LaserScan
+from tf.transformations import euler_from_quaternion
+
 ###############################
 # NEED TO ADD to launch file  # RUN rosrun prrexamples key_publisher.py to get /keys
 ###############################
@@ -29,8 +31,8 @@ def odometryCb(msg):
     zPosition = msgObj.z
     quat = (msgObj.x, msgObj.y, msgObj.z, msgObj.w)
     #create a list of the orientation coordinates 
-
-   #  roll,pitch,yaw = euler_from_quaternion(quat)   WASNT IMPORTING CORRECTLY
+    roll,pitch,yaw = euler_from_quaternion(quat)   
+    print(yaw) 
 
 # it is not necessary to add more code here but it could be useful
 def key_cb(msg):
@@ -52,7 +54,7 @@ def print_state():
 #def right():
    #desired = 269 #angle we want to turn towards 
 # init node
-rospy.init_node('pacman-motion')
+rospy.init_node('motion')
 # subscribers/publishers
 scan_sub = rospy.Subscriber('/pacman/scan', LaserScan, scan_cb)
 # RUN rosrun prrexamples key_publisher.py to get /keys
@@ -76,7 +78,7 @@ stop = True
 while not rospy.is_shutdown():
    # print out the current state and time since last key press
    linear_component,angular_component = key_mapping.get(state,(0,0))
-   print_state()
+   #print_state()
    # publish cmd_vel from here 
    t = Twist()
    t.linear.x = LINEAR_SPEED * linear_component 
