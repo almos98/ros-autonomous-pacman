@@ -66,14 +66,17 @@ def print_state():
    #do i need to change this order so check something if called first 
 #    cmd_vel_pub.publish(t)
 
+
 def north():
-    desired = math.pi
+    desired = 3.14
     t = Twist()
     if yaw > desired - tolerance and yaw < desired + tolerance:
+        print (yaw > desired - tolerance and yaw < desired + tolerance)
         t.linear.x = .22
     elif yaw == desired * 2:
         t.linear.x = 0     
     else:
+        # hitting here off the bat 
         t.angular.z = .2
     cmd_vel_pub.publish(t)
 
@@ -105,8 +108,9 @@ def south():
     if yaw > desired - tolerance and yaw < desired + tolerance:
         t.linear.x = .2
     else:
-        t.angular.z = .2
+        t.angular.z = .1
     cmd_vel_pub.publish(t)
+
 def halt():
     t = Twist()
     cmd_vel_pub.publish(t)
@@ -129,7 +133,7 @@ last_key_press_time = rospy.Time.now()
 rate = rospy.Rate(10)
 difference = rospy.Time.now()
 stop = True
-tolerance = .1
+tolerance = .2
 yaw = 0
 
 key_mapping = { 'w': north, 'd': east,
