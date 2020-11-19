@@ -49,24 +49,6 @@ def print_state():
 
  
 
-   # publish cmd_vel from here 
-#    t.linear.x = LINEAR_SPEED * linear_component 
-#    t.angular.z = ANGULAR_SPEED * angular_component 
-   # where for example:
-   # LINEAR_SPED = 0.2, ANGULAR_SPEED = pi/4
-   # velocity_vector = [1,0] for positive linear and no angular movement
-   # velocity_vector = [-1, 1] for negative linear and positive angular movement
-   # you will need one velocity vector for each state then so 
-   # we can then create a dictionary state: movement_vector to hash the current state to get the movement_vector
-   # in order to get the zig zag and spiral motion you could you something like this:
-   # twist.linear.x = LINEAR_SPEED * linear_component * linear_transform
-   # twist.angular.z = ANGULAR_SPEED * angular_component * angular_transform
-   # where the [linear_transform, angular_transform] is derived from another source that is based on the clock
-   # now you can change the velocity of the robot at every step of the program based on the state and the time
-   #do i need to change this order so check something if called first 
-#    cmd_vel_pub.publish(t)
-
-
 def north():
     desired = 3.14
     t = Twist()
