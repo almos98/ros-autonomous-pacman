@@ -36,7 +36,6 @@
         <arg name="debug" value="false"/>
     </include>
 
-
     <group ns="pacman">
         <param name="robot_description" command="$(find xacro)/xacro.py $(find turtlebot3_description)/urdf/turtlebot3_$(arg model).urdf.xacro" />
 
@@ -91,6 +90,7 @@
 
         <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-urdf -model ghost4 -x $(arg ghost4_pos_x) -y $(arg ghost4_pos_y) -z $(arg ghost4_pos_z) -Y $(arg ghost4_yaw) -param robot_description" />
     </group>
+    <!-- <param name="testmodel_description" textfile="$(find ros-autonomous-pacman)/models/TESTCYLINDER.urdf"/> -->
 
 
 </launch>

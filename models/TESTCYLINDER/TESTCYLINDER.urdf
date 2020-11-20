@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<robot name="TESTCYLINDER">
+  <link name="TESTCYLINDER__link_0">
+    <inertial>
+      <mass value="0.0151727"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0.000298635" ixy="0" ixz="0" iyy="0.000298635" iyz="0" izz="0.000591985"/>
+    </inertial>
+    <collision name="TESTCYLINDER__collision">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <cylinder length="0.045716" radius="0.279343"/>
+      </geometry>
+    </collision>
+    <visual name="TESTCYLINDER__visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <cylinder length="0.0457156" radius="0.279343"/>
+      </geometry>
+    </visual>
+  </link>
+</robot>
