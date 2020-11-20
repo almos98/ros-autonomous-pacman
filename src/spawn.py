@@ -12,3 +12,4 @@ if __name__ == '__main__':
     initial_pose=Pose(),
     reference_frame='world'
     )
+    print("SPAWNED")
