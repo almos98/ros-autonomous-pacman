@@ -53,13 +53,15 @@ def north():
     desired = 3.14
     t = Twist()
     if yaw > desired - tolerance and yaw < desired + tolerance:
-        print (yaw > desired - tolerance and yaw < desired + tolerance)
+        # print (yaw > desired - tolerance and yaw < desired + tolerance)
         t.linear.x = .22
     elif yaw == desired * 2:
         t.linear.x = 0     
     else:
         # hitting here off the bat 
-        t.angular.z = .2
+        t.angular.z = directionToTurn(desired)
+        #.2
+
     cmd_vel_pub.publish(t)
 
 
@@ -97,6 +99,12 @@ def halt():
     t = Twist()
     cmd_vel_pub.publish(t)
 
+def directionToTurn(desired):
+    if(yaw < desired):
+        print yaw + "is the yaw"
+        return .5
+    else:
+        return -.5
 
 # init node
 rospy.init_node('test')
