@@ -8,7 +8,7 @@ if __name__ == '__main__':
     spawn_model_client = rospy.ServiceProxy('/gazebo/spawn_sdf_model', SpawnModel)
     spawn_model_client(
     model_name='TESTCYLINDER',
-    model_xml=open('/my_ros_data/catkin_ws/src/ros-autonomous-pacman/models/TESTCYLINDER/TESTCYLINDER.urdf', 'r').read(), 
+    model_xml=open('/my_ros_data/catkin_ws/src/ros_autonomous_pacman/models/TESTCYLINDER/TESTCYLINDER.urdf', 'r').read(), 
     initial_pose=Pose(),
     reference_frame='world'
     )
