@@ -15,7 +15,7 @@
     <visual name="TESTCYLINDER__visual">
       <origin rpy="0  0  0" xyz="0  0  0"/>
       <geometry>
-        <cylinder length="0.0457156" radius="0.279343"/>
+        <cylinder length="0.00457156" radius="0.079343"/>
       </geometry>
     </visual>
   </link>
