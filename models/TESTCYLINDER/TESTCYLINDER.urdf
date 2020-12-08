@@ -1,22 +1,50 @@
 <?xml version="1.0" ?>
 <robot name="TESTCYLINDER">
-  <link name="TESTCYLINDER__link_0">
+  <!-- <link name="TESTCYLINDER__link_0">
     <inertial>
       <mass value="0.0151727"/>
       <origin rpy="0  0  0" xyz="0  0  0"/>
       <inertia ixx="0.000298635" ixy="0" ixz="0" iyy="0.000298635" iyz="0" izz="0.000591985"/>
     </inertial>
-    <!-- <collision name="TESTCYLINDER__collision">
+    <collision name="TESTCYLINDER__collision">
       <origin rpy="0  0  0" xyz="0  0  0"/>
       <geometry>
         <cylinder length="0.045716" radius="0.279343"/>
       </geometry>
-    </collision> -->
+    </collision>
     <visual name="TESTCYLINDER__visual">
       <origin rpy="0  0  0" xyz="0  0  0"/>
       <geometry>
         <cylinder length="0.00457156" radius="0.079343"/>
       </geometry>
     </visual>
-  </link>
-</robot>
+    </link> -->
+
+
+    <link name="base_link">
+      <inertial>
+      <mass value="0.0151727"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0.000298635" ixy="0" ixz="0" iyy="0.000298635" iyz="0" izz="0.000591985"/>
+    </inertial>
+    <collision>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <cylinder length="0.00001" radius="0.001"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <cylinder length="0.01" radius="0.079343"/>
+      </geometry>
+    </visual>
+    </link>
+
+
+    <!-- <joint name="connection" type="fixed">
+      <parent link="base_link"/>
+      <child link="TESTCYLINDER__link_0"/>
+    </joint> -->
+
+ </robot>
