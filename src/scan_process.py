@@ -45,10 +45,10 @@ class ScanProcess:
         # Process scan and odom data
         # Build message
         # Publish
-        # rangesNorth = self.scan_data.ranges[:30] + self.scan_data.ranges[330:] 
-        # rangesEast = self.scan_data.ranges[54:124] 
-        # rangesSouth = self.scan_data.ranges[165:195] 
-        # rangesWest = self.scan_data.ranges[234:304] 
+        rangesNorth = self.scan_data.ranges[:30] + self.scan_data.ranges[330:] 
+        rangesEast = self.scan_data.ranges[54:124] 
+        rangesSouth = self.scan_data.ranges[165:195] 
+        rangesWest = self.scan_data.ranges[234:304] 
  
 
         processed_data = ProcessedScan()
@@ -75,11 +75,14 @@ class ScanProcess:
         processed_data.east = min(self.subset(self.scan_data.ranges, (n_index + 90) % 360)) <= MIN_RANGE
         processed_data.south = min(self.subset(self.scan_data.ranges,(n_index + 180) % 360)) <= MIN_RANGE
         processed_data.west = min(self.subset(self.scan_data.ranges,(n_index + 270) % 360)) <= MIN_RANGE
-
-        self.pub.publish(processed_data)
+        # processed_data.north = min(rangesNorth) <= .2 
+        # processed_data.east = min(rangesEast)  <= .2 
+        # processed_data.south = min(rangesSouth)  <= .2 
+        # processed_data.west = min(rangesWest)  <= .2 
+        # self.pub.publish(processed_data)
 
     def subset(self,ranges, i, n=30):
-        return [ranges[x] for x in range(i-n,i+n) if x >= self.scan_data.range_min]
+        return [ranges[x] for x in range(i-n,i+n) if x > self.scan_data.range_min]
 
 # MAIN FUNCTION 
 if __name__ == "__main__":
