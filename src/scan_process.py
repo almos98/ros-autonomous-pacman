@@ -52,18 +52,30 @@ class ScanProcess:
  
 
         processed_data = ProcessedScan()
-
         processed_data.facing = self.yaw
-        pi = MATH.pi
-        if self.yaw < (pi/4) and self.yaw > (7 * pi)/4:   
+        n_index = -1
+        pi = math.pi
+        if self.yaw > (3 * pi)/4 and self.yaw < (5 * pi)/4:   # 
             # facing north  
+            print "1"
             n_index = 0
-        elif self.yaw > (pi/4) and self.yaw < (3 * pi)/4:
+            print n_index
+        elif self.yaw > (pi)/4 and self.yaw < ( 3 * pi)/4: #
+            print "2"
             n_index = 89
-        elif self.yaw > (3 * pi)/4 and self.yaw < (5 * pi)/4:
+            print n_index
+        elif self.yaw < (pi/4) and self.yaw > (7 * pi)/4: #
+            print "3"
             n_index = 180
-        elif self.yaw > (5 * pi)/4 and self.yaw < (7 * pi)/4:
+            print n_index
+
+        elif self.yaw > (5 * pi)/4 and self.yaw < (7 * pi)/4: #5pi/4 & 7pi/4
+            print "4"
             n_index = 270
+            print n_index
+
+        elif n_index == -1:
+            return
 
         processed_data.north = min(self.subset(self.scan_data.ranges,n_index)) <= MIN_RANGE
         processed_data.east = min(self.subset(self.scan_data.ranges, (n_index + 90) % 360)) <= MIN_RANGE
