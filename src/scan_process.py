@@ -55,25 +55,19 @@ class ScanProcess:
         processed_data.facing = self.yaw
         n_index = -1
         pi = math.pi
-        if self.yaw > (3 * pi)/4 and self.yaw < (5 * pi)/4:   # 
+        if self.yaw > (5 * pi)/6 and self.yaw < (7 * pi)/6: 
             # facing north  
-            print "1"
             n_index = 0
             print n_index
-        elif self.yaw > (pi)/4 and self.yaw < ( 3 * pi)/4: #
-            print "2"
+        elif self.yaw > (pi)/3 and self.yaw < ( 2 * pi)/3: #
             n_index = 89
             print n_index
-        elif self.yaw < (pi/4) and self.yaw > (7 * pi)/4: #
-            print "3"
+        elif self.yaw < (pi/6) and self.yaw > (11 * pi)/11: #
             n_index = 180
             print n_index
-
-        elif self.yaw > (5 * pi)/4 and self.yaw < (7 * pi)/4: #5pi/4 & 7pi/4
-            print "4"
+        elif self.yaw > (4 * pi)/3 and self.yaw < (5 * pi)/3: 
             n_index = 270
             print n_index
-
         elif n_index == -1:
             return
 
@@ -85,7 +79,7 @@ class ScanProcess:
         self.pub.publish(processed_data)
 
     def subset(self,ranges, i, n=30):
-        return [ranges[x] for x in range(i-n,i+n) if x > self.scan_data.range_min]
+        return [ranges[x] for x in range(i-n,i+n) if x >= self.scan_data.range_min]
 
 # MAIN FUNCTION 
 if __name__ == "__main__":
