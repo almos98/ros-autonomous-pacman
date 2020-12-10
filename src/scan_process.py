@@ -74,9 +74,9 @@ class ScanProcess:
         # processed_data.east = min(self.subset(self.scan_data.ranges, (n_index + 90) % 360)) <= MIN_RANGE
         # processed_data.south = min(self.subset(self.scan_data.ranges,(n_index + 180) % 360)) <= MIN_RANGE
         # processed_data.west = min(self.subset(self.scan_data.ranges,(n_index + 270) % 360)) <= MIN_RANGE
-        processed_data.north = min(rangesNorth) <= .2 
+        processed_data.north = min(rangesNorth) <= .5 
         processed_data.east = min(rangesEast)  <= .2 
-        processed_data.south = min(rangesSouth)  <= .2 
+        processed_data.south = min(rangesSouth)  <= .5 
         processed_data.west = min(rangesWest)  <= .2 
         self.pub.publish(processed_data)
 
