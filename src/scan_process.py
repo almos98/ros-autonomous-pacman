@@ -58,28 +58,27 @@ class ScanProcess:
         if self.yaw > (5 * pi)/6 and self.yaw < (7 * pi)/6: 
             # facing north  
             n_index = 0
-            print n_index
-        elif self.yaw > (pi)/3 and self.yaw < ( 2 * pi)/3: #
+        elif self.yaw > (pi)/3 and self.yaw < (2 * pi)/3: 
+            # east
             n_index = 89
-            print n_index
-        elif self.yaw < (pi/6) and self.yaw > (11 * pi)/11: #
+        elif self.yaw < (pi/6) and self.yaw > (11 * pi)/6: 
+            #south 
             n_index = 180
-            print n_index
         elif self.yaw > (4 * pi)/3 and self.yaw < (5 * pi)/3: 
+            #west
             n_index = 270
-            print n_index
         elif n_index == -1:
             return
 
-        processed_data.north = min(self.subset(self.scan_data.ranges,n_index)) <= MIN_RANGE
-        processed_data.east = min(self.subset(self.scan_data.ranges, (n_index + 90) % 360)) <= MIN_RANGE
-        processed_data.south = min(self.subset(self.scan_data.ranges,(n_index + 180) % 360)) <= MIN_RANGE
-        processed_data.west = min(self.subset(self.scan_data.ranges,(n_index + 270) % 360)) <= MIN_RANGE
-        # processed_data.north = min(rangesNorth) <= .2 
-        # processed_data.east = min(rangesEast)  <= .2 
-        # processed_data.south = min(rangesSouth)  <= .2 
-        # processed_data.west = min(rangesWest)  <= .2 
-        # self.pub.publish(processed_data)
+        # processed_data.north = min(self.subset(self.scan_data.ranges,n_index)) <= MIN_RANGE
+        # processed_data.east = min(self.subset(self.scan_data.ranges, (n_index + 90) % 360)) <= MIN_RANGE
+        # processed_data.south = min(self.subset(self.scan_data.ranges,(n_index + 180) % 360)) <= MIN_RANGE
+        # processed_data.west = min(self.subset(self.scan_data.ranges,(n_index + 270) % 360)) <= MIN_RANGE
+        processed_data.north = min(rangesNorth) <= .2 
+        processed_data.east = min(rangesEast)  <= .2 
+        processed_data.south = min(rangesSouth)  <= .2 
+        processed_data.west = min(rangesWest)  <= .2 
+        self.pub.publish(processed_data)
 
     def subset(self,ranges, i, n=30):
         return [ranges[x] for x in range(i-n,i+n) if x > self.scan_data.range_min]
