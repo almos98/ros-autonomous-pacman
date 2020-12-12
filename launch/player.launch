@@ -1,0 +1,37 @@
+<launch>
+    <arg name="model" default="burger" doc="model type [burger, waffle, waffle_pi]"/>
+    <arg name="pos_x" default="0.0"/>
+    <arg name="pos_y" default="0.0"/>
+    <arg name="pos_z" default="0.0"/>
+    <arg name="yaw" default="0.0"/>
+
+    <arg name="robot_name" default=""/>
+
+    <group ns="$(arg robot_name)">
+        <param name="robot_description" command="$(find xacro)/xacro.py $(find turtlebot3_description)/urdf/turtlebot3_$(arg model).urdf.xacro" />
+
+        <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen">
+            <param name="publish_frequency" type="double" value="50.0" />
+            <param name="tf_prefix" value="$(arg robot_name)" />
+        </node>
+
+        <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-urdf -model $(arg robot_name) -x $(arg pos_x) -y $(arg pos_y) -z $(arg pos_z) -Y $(arg yaw) -param robot_description" />
+        <node pkg="ros_autonomous_pacman" type="teleop.py" name="teleop" output="screen"/>
+
+        <!-- AMCL -->
+        <include file="$(find ros_autonomous_pacman)/launch/amcl.launch">
+            <arg name="scan_topic" value="$(arg robot_name)/scan"/>
+            <arg name="initial_pose_x" value="$(arg pos_x)"/>
+            <arg name="initial_pose_y" value="$(arg pos_y)"/>
+            <arg name="robot_name" value="$(arg robot_name)"/>
+        </include>
+
+        <!-- move_base -->
+        <include file="$(find ros_autonomous_pacman)/launch/move_base.launch">
+            <arg name="model" value="$(arg model)" />
+            <arg name="cmd_vel_topic" value="$(arg robot_name)/cmd_vel"/>
+            <arg name="odom_topic" value="$(arg robot_name)/odom"/>
+            <arg name="move_forward_only" value="false"/>
+        </include>
+    </group>
+</launch>

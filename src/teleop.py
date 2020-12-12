@@ -29,8 +29,7 @@ def odometryCb(msg):
     zPosition = msgObj.z
     quat = (msgObj.x, msgObj.y, msgObj.z, msgObj.w)
     #create a list of the orientation coordinates 
-    roll,pitch,yaw = euler_from_quaternion(quat)   
-    print(yaw) 
+    roll,pitch,yaw = euler_from_quaternion(quat)
 
 # it is not necessary to add more code here but it could be useful
 def key_cb(msg):
@@ -39,13 +38,6 @@ def key_cb(msg):
    last_key_press_time = rospy.Time.now()
    if state in key_mapping.keys():
       linear_component , angular_component = key_mapping[state]
-# print the state of the robot
-def print_state():
-   print("---")
-   print("STATE: " + state)
-   # calculate time since last key stroke
-   time_since = rospy.Time.now() - last_key_press_time
-   print("SECS SINCE LAST KEY PRESS: " + str(time_since.secs))
 
 # init node
 rospy.init_node('motion')
