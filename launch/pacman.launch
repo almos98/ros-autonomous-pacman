@@ -36,6 +36,10 @@
         <arg name="debug" value="false"/>
     </include>
 
+    <node pkg="ros_autonomous_pacman" type="game_logic.py" name="game_logic" output="screen">
+
+    </node>
+
     <group ns="pacman">
         <param name="robot_description" command="$(find xacro)/xacro.py $(find turtlebot3_description)/urdf/turtlebot3_$(arg model).urdf.xacro" />
 

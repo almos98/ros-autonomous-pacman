@@ -11,7 +11,7 @@ COLLECTIBLE_NAME = 'Collectible_%s_%s'
 
 # Takes floats x and y and spawns a model at that position.
 # x and y are in WORLD coordinates.
-def spawn_collectible(x, y, model_name=None):
+def spawn(x, y, model_name=None):
     if model_name is None:
         model_name = COLLECTIBLE_NAME % (x, y)
 
@@ -30,7 +30,7 @@ def spawn_collectible(x, y, model_name=None):
 
 # Takes floats x and y and deletes the model at that position.
 # x and y are in WORLD coordinates.
-def delete_collectible(x, y, model_name=None):
+def delete(x, y, model_name=None):
     if model_name is None:
         model_name = COLLECTIBLE_NAME % (x, y)
     
