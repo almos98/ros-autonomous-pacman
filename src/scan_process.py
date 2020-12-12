@@ -70,10 +70,7 @@ class ScanProcess:
         elif n_index == -1:
             return
 
-        # processed_data.north = min(self.subset(self.scan_data.ranges,n_index)) <= MIN_RANGE
-        # processed_data.east = min(self.subset(self.scan_data.ranges, (n_index + 90) % 360)) <= MIN_RANGE
-        # processed_data.south = min(self.subset(self.scan_data.ranges,(n_index + 180) % 360)) <= MIN_RANGE
-        # processed_data.west = min(self.subset(self.scan_data.ranges,(n_index + 270) % 360)) <= MIN_RANGE
+       
         processed_data.north = min(rangesNorth) <= .5 
         processed_data.east = min(rangesEast)  <= .2 
         processed_data.south = min(rangesSouth)  <= .5 
