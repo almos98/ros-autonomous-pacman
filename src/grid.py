@@ -1,7 +1,5 @@
 #!/usr/bin/env python
 
-from math import floor
-
 class GridCoords:
     __grid = None
     @staticmethod
@@ -25,9 +23,15 @@ class GridCoords:
 
         GridCoords.__grid = self
 
-    # Takes grid coordinates x and y and returns the transformed coordinates into world coordinates.
+    # Takes grid coordinates x and y and returns the world coordinates.
     def to_world_coords(self, x, y):
         x = self.offset[0] + (x * self.cell_size_m)
         y = self.offset[1] + (y * self.cell_size_m)
 
+        return (x, y)
+
+    # Takes world coordinates x and y and returns the transformed coordinates.
+    def to_grid_coords(self, x, y):
+        x = int((round(x) - self.offset[0]) / self.cell_size_m)
+        y = int((round(y) - self.offset[1]) / self.cell_size_m)
         return (x, y)
