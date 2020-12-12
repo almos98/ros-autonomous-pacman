@@ -19,27 +19,36 @@ class GameLogic:
         self.state_cb = [self.STATE_init, self.STATE_run]
         self.game_state_pub = rospy.Publisher("game_logic/state", Int32, queue_size=1)
 
-        self.init_time = 10000
-        self.STATE_init(from_init=True)
-
         self.grid = None
+        self.collectibles = set()
+        self.collectible_count = 0
         
 
-    def STATE_init(self, from_init=False):
+    def STATE_init(self):
         rospy.loginfo_once("Setting up the game.")
-
-        if not from_init:
-            self.init_time -= 1
-            return
-
-        self.grid = GridCoords.get_grid(grid_size_x=9, grid_size_y=12, offset_f = lambda x: (-(3 * x), -(6 * x)))
-
-
         
+        self.grid = GridCoords.get_grid(grid_size_x=9, grid_size_y=12, offset_f = lambda x: (-(3 * x), -(6 * x)))
+        exclude = set([(0,0), (0,1), (0,11), (1,0), (1,1), (1,11), (2,0), (2,11), (3,11), (4,11), (5,11), (8,0), (8,4), (8,5),(8,10), (8,11)])
+        print(exclude)
+        for x in range(self.grid.size_x):
+            for y in range(self.grid.size_y):
+                if (x, y) in exclude:
+                    continue
+                
+                self.collectibles.add((x,y))
+                (x_, y_) = self.grid.to_world_coords(x,y)
+                collectibles.spawn(x_, y_, model_name="Collectible_%s_%s" % (x_, y_))
+        
+        self.collectible_count = len(self.collectibles)
+        self.change_state(1)
+            
 
     def STATE_run(self):
-        print("lmao")
+        rospy.loginfo_throttle(1, "Collectibles left: %s, Score: %s" % (len(self.collectibles), self.score()))
 
+    def score(self):
+        return self.collectible_count - len(self.collectibles)
+        
     def change_state(self, state):
         self.game_state = state
         self.game_state_pub.publish(state)
