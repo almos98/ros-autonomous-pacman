@@ -9,16 +9,14 @@ from nav_msgs.msg import Odometry
 from sensor_msgs.msg import LaserScan
 from tf.transformations import euler_from_quaternion
 
-###############################
-# NEED TO ADD to launch file  # RUN rosrun prrexamples key_publisher.py to get /keys
-###############################
 key_mapping = { 'a': [0,1], 'd': [0,-1],
                 'w': [ 1, 0], 's': [-1,  0],
                 'x': [ 0, 0] }
 # fill in scan callback
 def scan_cb(msg):
    global state
-   rangesInFront = msg.ranges[:45] + msg.ranges[314:] # these are the degrees that will detect an object 
+   rangesInFront = msg.ranges[:45] + msg.ranges[314:] 
+   # these are the degrees that will detect an object 
    if min(rangesInFront) <= .2:
       state = 'x'
 def odometryCb(msg):
@@ -72,9 +70,8 @@ difference = rospy.Time.now()
 stop = True
 # Wait for published topics, exit on ^c
 while not rospy.is_shutdown():
-   # print out the current state and time since last key press
+   
    linear_component,angular_component = key_mapping.get(state,(0,0))
-   #print_state()
    # publish cmd_vel from here 
    t = Twist()
    t.linear.x = LINEAR_SPEED * linear_component 
