@@ -1,7 +1,10 @@
 <launch>
     <arg name="world" default="maze_10m_x_14m.world"/>
     <arg name="model" default="burger" doc="model type [burger, waffle, waffle_pi]"/>
-    
+    <arg name="map_file" default="$(find ros_autonomous_pacman)/maze.yaml"/>
+    <arg name="open_rviz" default="true"/>
+    <arg name="move_forward_only" default="false"/>
+
     <arg name="pacman_pos_x" default=" 5"/>
     <arg name="pacman_pos_y" default=" 0.0"/>
     <arg name="pacman_pos_z" default=" 0.0"/>
@@ -36,9 +39,11 @@
         <arg name="debug" value="false"/>
     </include>
 
-    <node pkg="ros_autonomous_pacman" type="game_logic.py" name="game_logic" output="screen">
+    <!-- Map server -->
+    <node pkg="map_server" name="map_server" type="map_server" args="$(arg map_file)"/>
 
-    </node>
+    <!-- Game Logic -->
+    <node pkg="ros_autonomous_pacman" type="game_logic.py" name="game_logic" output="screen"/>
 
     <group ns="pacman">
         <param name="robot_description" command="$(find xacro)/xacro.py $(find turtlebot3_description)/urdf/turtlebot3_$(arg model).urdf.xacro" />
@@ -53,6 +58,22 @@
 
     <group ns="ghost1">
         <param name="robot_description" command="$(find xacro)/xacro.py $(find turtlebot3_description)/urdf/turtlebot3_$(arg model).urdf.xacro" />
+
+
+        <!-- AMCL -->
+        <include file="$(find turtlebot3_navigation)/launch/amcl.launch">
+            <arg name="scan_topic" value="ghost1/scan"/>
+            <arg name="initial_pose_x" value="$(arg ghost1_pos_x)"/>
+            <arg name="initial_pose_y" value="$(arg ghost1_pos_y)"/>
+        </include>
+
+        <!-- move_base -->
+        <include file="$(find turtlebot3_navigation)/launch/move_base.launch">
+            <arg name="model" value="$(arg model)" />
+            <arg name="move_forward_only" value="$(arg move_forward_only)"/>
+            <arg name="cmd_vel_topic" value="ghost1/cmd_vel"/>
+            <arg name="odom_topic" value="ghost1/odom" />
+        </include>
 
         <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen">
             <param name="publish_frequency" type="double" value="50.0" />
@@ -96,5 +117,9 @@
     </group>
     <!-- <param name="testmodel_description" textfile="$(find ros-autonomous-pacman)/models/TESTCYLINDER.urdf"/> -->
 
-
+    <!-- rviz -->
+    <group if="$(arg open_rviz)"> 
+        <node pkg="rviz" type="rviz" name="rviz" required="true"
+            args="-d $(find turtlebot3_navigation)/rviz/turtlebot3_navigation.rviz"/>
+    </group>
 </launch>

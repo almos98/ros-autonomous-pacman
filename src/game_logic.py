@@ -31,7 +31,7 @@ class GameLogic:
         
         self.grid = GridCoords.get_grid(grid_size_x=9, grid_size_y=12, offset_f = lambda x: (-(3 * x), -(6 * x)))
         # exclude = set([(0,0), (0,1), (0,11), (1,0), (1,1), (1,11), (2,0), (2,11), (3,11), (4,11), (5,11), (8,0), (8,4), (8,5),(8,10), (8,11)])
-        include = set([(7,6)])
+        include = set([(7,6),(7,7),(7,8),(6,7)])
         for x in range(self.grid.size_x):
             for y in range(self.grid.size_y):
                 if (x, y) not in include:
