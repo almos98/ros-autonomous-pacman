@@ -38,3 +38,4 @@ $ rosrun prrexamples key_publisher.py
 ## Useful links for this project
 - [Maps Repo](https://github.com/tu-darmstadt-ros-pkg/hector_nist_arenas_gazebo)
 - [SDF to URDF converter](https://github.com/andreasBihlmaier/pysdf)
+- [SDF to URDF video](https://www.youtube.com/watch?v=8g5nMxhi_Pw)
