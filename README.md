@@ -1,5 +1,7 @@
 # ros_autonomous_pacman
 
+[Lab notebook contribution](https://campus-rover.gitbook.io/lab-notebook/faq/sdf_to_urdf)
+
 ## Introduction
 Pacman is placed in a map with virtual collectibles and the goal is for pacman to get all collectibles without crashing into any of the "ghost" robots.
 
